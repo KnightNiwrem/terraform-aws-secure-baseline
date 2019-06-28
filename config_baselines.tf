@@ -79,7 +79,11 @@ resource "aws_iam_role_policy_attachment" "recoder_read_policy" {
 # --------------------------------------------------------------------------------------------------
 
 module "config_baseline_ap-northeast-1" {
-  source             = "./modules/config-baseline"
+  source = "./modules/config-baseline"
+
+  all_supported                 = "${!contains(var.all_supported_blacklist_regions, "ap-northeast-1")}"
+  include_global_resource_types = "${contains(var.include_global_resource_types_whitelist_regions, "ap-northeast-1")}"
+
   iam_role_arn       = "${aws_iam_role.recorder.arn}"
   s3_bucket_name     = "${module.audit_log_bucket.this_bucket_id}"
   s3_key_prefix      = "${var.config_s3_bucket_key_prefix}"
@@ -92,7 +96,11 @@ module "config_baseline_ap-northeast-1" {
 }
 
 module "config_baseline_ap-northeast-2" {
-  source             = "./modules/config-baseline"
+  source = "./modules/config-baseline"
+
+  all_supported                 = "${!contains(var.all_supported_blacklist_regions, "ap-northeast-2")}"
+  include_global_resource_types = "${contains(var.include_global_resource_types_whitelist_regions, "ap-northeast-2")}"
+
   iam_role_arn       = "${aws_iam_role.recorder.arn}"
   s3_bucket_name     = "${module.audit_log_bucket.this_bucket_id}"
   s3_key_prefix      = "${var.config_s3_bucket_key_prefix}"
@@ -105,7 +113,11 @@ module "config_baseline_ap-northeast-2" {
 }
 
 module "config_baseline_ap-south-1" {
-  source             = "./modules/config-baseline"
+  source = "./modules/config-baseline"
+
+  all_supported                 = "${!contains(var.all_supported_blacklist_regions, "ap-south-1")}"
+  include_global_resource_types = "${contains(var.include_global_resource_types_whitelist_regions, "ap-south-1")}"
+
   iam_role_arn       = "${aws_iam_role.recorder.arn}"
   s3_bucket_name     = "${module.audit_log_bucket.this_bucket_id}"
   s3_key_prefix      = "${var.config_s3_bucket_key_prefix}"
@@ -118,7 +130,11 @@ module "config_baseline_ap-south-1" {
 }
 
 module "config_baseline_ap-southeast-1" {
-  source             = "./modules/config-baseline"
+  source = "./modules/config-baseline"
+
+  all_supported                 = "${!contains(var.all_supported_blacklist_regions, "ap-southeast-1")}"
+  include_global_resource_types = "${contains(var.include_global_resource_types_whitelist_regions, "ap-southeast-1")}"
+
   iam_role_arn       = "${aws_iam_role.recorder.arn}"
   s3_bucket_name     = "${module.audit_log_bucket.this_bucket_id}"
   s3_key_prefix      = "${var.config_s3_bucket_key_prefix}"
@@ -131,7 +147,11 @@ module "config_baseline_ap-southeast-1" {
 }
 
 module "config_baseline_ap-southeast-2" {
-  source             = "./modules/config-baseline"
+  source = "./modules/config-baseline"
+
+  all_supported                 = "${!contains(var.all_supported_blacklist_regions, "ap-southeast-2")}"
+  include_global_resource_types = "${contains(var.include_global_resource_types_whitelist_regions, "ap-southeast-2")}"
+
   iam_role_arn       = "${aws_iam_role.recorder.arn}"
   s3_bucket_name     = "${module.audit_log_bucket.this_bucket_id}"
   s3_key_prefix      = "${var.config_s3_bucket_key_prefix}"
@@ -144,7 +164,11 @@ module "config_baseline_ap-southeast-2" {
 }
 
 module "config_baseline_ca-central-1" {
-  source             = "./modules/config-baseline"
+  source = "./modules/config-baseline"
+
+  all_supported                 = "${!contains(var.all_supported_blacklist_regions, "ca-central-1")}"
+  include_global_resource_types = "${contains(var.include_global_resource_types_whitelist_regions, "ca-central-1")}"
+
   iam_role_arn       = "${aws_iam_role.recorder.arn}"
   s3_bucket_name     = "${module.audit_log_bucket.this_bucket_id}"
   s3_key_prefix      = "${var.config_s3_bucket_key_prefix}"
@@ -157,7 +181,11 @@ module "config_baseline_ca-central-1" {
 }
 
 module "config_baseline_eu-central-1" {
-  source             = "./modules/config-baseline"
+  source = "./modules/config-baseline"
+
+  all_supported                 = "${!contains(var.all_supported_blacklist_regions, "eu-central-1")}"
+  include_global_resource_types = "${contains(var.include_global_resource_types_whitelist_regions, "eu-central-1")}"
+
   iam_role_arn       = "${aws_iam_role.recorder.arn}"
   s3_bucket_name     = "${module.audit_log_bucket.this_bucket_id}"
   s3_key_prefix      = "${var.config_s3_bucket_key_prefix}"
@@ -170,7 +198,11 @@ module "config_baseline_eu-central-1" {
 }
 
 module "config_baseline_eu-west-1" {
-  source             = "./modules/config-baseline"
+  source = "./modules/config-baseline"
+
+  all_supported                 = "${!contains(var.all_supported_blacklist_regions, "eu-west-1")}"
+  include_global_resource_types = "${contains(var.include_global_resource_types_whitelist_regions, "eu-west-1")}"
+
   iam_role_arn       = "${aws_iam_role.recorder.arn}"
   s3_bucket_name     = "${module.audit_log_bucket.this_bucket_id}"
   s3_key_prefix      = "${var.config_s3_bucket_key_prefix}"
@@ -183,7 +215,11 @@ module "config_baseline_eu-west-1" {
 }
 
 module "config_baseline_eu-west-2" {
-  source             = "./modules/config-baseline"
+  source = "./modules/config-baseline"
+
+  all_supported                 = "${!contains(var.all_supported_blacklist_regions, "eu-west-2")}"
+  include_global_resource_types = "${contains(var.include_global_resource_types_whitelist_regions, "eu-west-2")}"
+
   iam_role_arn       = "${aws_iam_role.recorder.arn}"
   s3_bucket_name     = "${module.audit_log_bucket.this_bucket_id}"
   s3_key_prefix      = "${var.config_s3_bucket_key_prefix}"
@@ -196,7 +232,11 @@ module "config_baseline_eu-west-2" {
 }
 
 module "config_baseline_eu-west-3" {
-  source             = "./modules/config-baseline"
+  source = "./modules/config-baseline"
+
+  all_supported                 = "${!contains(var.all_supported_blacklist_regions, "eu-west-3")}"
+  include_global_resource_types = "${contains(var.include_global_resource_types_whitelist_regions, "eu-west-3")}"
+
   iam_role_arn       = "${aws_iam_role.recorder.arn}"
   s3_bucket_name     = "${module.audit_log_bucket.this_bucket_id}"
   s3_key_prefix      = "${var.config_s3_bucket_key_prefix}"
@@ -209,7 +249,11 @@ module "config_baseline_eu-west-3" {
 }
 
 module "config_baseline_sa-east-1" {
-  source             = "./modules/config-baseline"
+  source = "./modules/config-baseline"
+
+  all_supported                 = "${!contains(var.all_supported_blacklist_regions, "sa-east-1")}"
+  include_global_resource_types = "${contains(var.include_global_resource_types_whitelist_regions, "sa-east-1")}"
+
   iam_role_arn       = "${aws_iam_role.recorder.arn}"
   s3_bucket_name     = "${module.audit_log_bucket.this_bucket_id}"
   s3_key_prefix      = "${var.config_s3_bucket_key_prefix}"
@@ -222,7 +266,11 @@ module "config_baseline_sa-east-1" {
 }
 
 module "config_baseline_us-east-1" {
-  source             = "./modules/config-baseline"
+  source = "./modules/config-baseline"
+
+  all_supported                 = "${!contains(var.all_supported_blacklist_regions, "us-east-1")}"
+  include_global_resource_types = "${contains(var.include_global_resource_types_whitelist_regions, "us-east-1")}"
+
   iam_role_arn       = "${aws_iam_role.recorder.arn}"
   s3_bucket_name     = "${module.audit_log_bucket.this_bucket_id}"
   s3_key_prefix      = "${var.config_s3_bucket_key_prefix}"
@@ -235,7 +283,11 @@ module "config_baseline_us-east-1" {
 }
 
 module "config_baseline_us-east-2" {
-  source             = "./modules/config-baseline"
+  source = "./modules/config-baseline"
+
+  all_supported                 = "${!contains(var.all_supported_blacklist_regions, "us-east-2")}"
+  include_global_resource_types = "${contains(var.include_global_resource_types_whitelist_regions, "us-east-2")}"
+
   iam_role_arn       = "${aws_iam_role.recorder.arn}"
   s3_bucket_name     = "${module.audit_log_bucket.this_bucket_id}"
   s3_key_prefix      = "${var.config_s3_bucket_key_prefix}"
@@ -248,7 +300,11 @@ module "config_baseline_us-east-2" {
 }
 
 module "config_baseline_us-west-1" {
-  source             = "./modules/config-baseline"
+  source = "./modules/config-baseline"
+
+  all_supported                 = "${!contains(var.all_supported_blacklist_regions, "us-west-1")}"
+  include_global_resource_types = "${contains(var.include_global_resource_types_whitelist_regions, "us-west-1")}"
+
   iam_role_arn       = "${aws_iam_role.recorder.arn}"
   s3_bucket_name     = "${module.audit_log_bucket.this_bucket_id}"
   s3_key_prefix      = "${var.config_s3_bucket_key_prefix}"
@@ -261,7 +317,11 @@ module "config_baseline_us-west-1" {
 }
 
 module "config_baseline_us-west-2" {
-  source             = "./modules/config-baseline"
+  source = "./modules/config-baseline"
+
+  all_supported                 = "${!contains(var.all_supported_blacklist_regions, "us-west-2")}"
+  include_global_resource_types = "${contains(var.include_global_resource_types_whitelist_regions, "us-west-2")}"
+
   iam_role_arn       = "${aws_iam_role.recorder.arn}"
   s3_bucket_name     = "${module.audit_log_bucket.this_bucket_id}"
   s3_key_prefix      = "${var.config_s3_bucket_key_prefix}"
