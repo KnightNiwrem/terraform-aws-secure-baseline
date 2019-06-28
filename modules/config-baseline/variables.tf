@@ -30,3 +30,13 @@ variable "delivery_channel_name" {
   description = "The name of the delivery channel."
   default     = "default"
 }
+
+variable "all_supported" {
+  description = "Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with resource_types. Defaults to true."
+  default     = true
+}
+
+variable "include_global_resource_types" {
+  description = "Specifies whether AWS Config includes all supported types of global resources with the resources that it records. Requires all_supported = true. Conflicts with resource_types. Defaults to false."
+  default     = false
+}
