@@ -151,12 +151,16 @@ variable "config_sns_topic_name" {
 
 variable "all_supported_blacklist_regions" {
   description = "Exclude recording region-supported configs for these regions"
-  default     = []
+  type        = list(string)
+
+  default = []
 }
 
 variable "include_global_resource_types_whitelist_regions" {
   description = "Include recording global-supported configs for these regions"
-  default     = []
+  type        = list(string)
+
+  default = []
 }
 
 # --------------------------------------------------------------------------------------------------
