@@ -21,11 +21,11 @@ resource "aws_s3_bucket" "content" {
 
   acl = "private"
 
-  logging = {
+  logging {
     target_bucket = aws_s3_bucket.access_log.id
   }
 
-  versioning = {
+  versioning {
     enabled = true
 
     # Temporarily disabled due to Terraform issue.
