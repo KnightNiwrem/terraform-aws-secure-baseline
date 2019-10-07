@@ -20,7 +20,7 @@ resource "aws_config_delivery_channel" "bucket" {
   s3_key_prefix  = var.s3_key_prefix
   sns_topic_arn  = aws_sns_topic.config.arn
 
-  snapshot_delivery_properties = {
+  snapshot_delivery_properties {
     delivery_frequency = var.delivery_frequency
   }
 
