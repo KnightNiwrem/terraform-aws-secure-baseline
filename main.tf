@@ -26,7 +26,7 @@ resource "aws_s3_bucket_policy" "audit_log_bucket_policy" {
       "Effect": "Allow",
       "Principal": {"Service": "config.amazonaws.com"},
       "Action": "s3:GetBucketAcl",
-      "Resource": module.audit_log_bucket.this_bucket_arn
+      "Resource": "${module.audit_log_bucket.this_bucket_arn}"
     },
     {
       "Sid": " AWSCloudTrailWriteForConfig",
@@ -43,7 +43,7 @@ resource "aws_s3_bucket_policy" "audit_log_bucket_policy" {
             "Service": "cloudtrail.amazonaws.com"
         },
         "Action": "s3:GetBucketAcl",
-        "Resource": module.audit_log_bucket.this_bucket_arn
+        "Resource": "${module.audit_log_bucket.this_bucket_arn}"
     },
     {
         "Sid": "AWSCloudTrailWriteForCloudTrail",
